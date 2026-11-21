@@ -1,0 +1,2509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#00205B" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="KU CMB Check" />
+<title>Kuwait Airways – CMB Ground Handling Checklist</title>
+<style>
+  :root {
+    --ku-navy: #00205B;
+    --ku-navy-dark: #001338;
+    --ku-blue: #0055A5;
+    --ku-gold: #C59B27;
+    --ku-gold-light: #F6E9C3;
+    --bg: #F2F5F9;
+    --card: #FFFFFF;
+    --text: #102038;
+    --muted: #5A6B82;
+    --border: #D6DFEC;
+    --c-bg: #DCFCE7; --c-fg: #166534;
+    --nc-bg: #FEE2E2; --nc-fg: #991B1B;
+    --obs-bg: #FEF3C7; --obs-fg: #92400E;
+    --na-bg: #E2E8F0; --na-fg: #334155;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding-bottom: 54px;
+  }
+
+  header.app-header {
+    background: linear-gradient(135deg, var(--ku-navy-dark) 0%, var(--ku-navy) 65%, var(--ku-blue) 100%);
+    color: #fff;
+    padding: 14px 16px;
+    border-bottom: 3px solid var(--ku-gold);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    box-shadow: 0 3px 12px rgba(0, 32, 91, 0.22);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ku-emblem {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: var(--ku-gold);
+    color: var(--ku-navy-dark);
+    font-weight: 900;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.05;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  .ku-emblem span.sub {
+    font-size: 8px;
+    letter-spacing: 0.6px;
+    font-weight: 800;
+  }
+
+  .brand-title {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    color: var(--ku-gold-light);
+    margin-top: 2px;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: transform 0.08s ease, opacity 0.15s ease;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .btn-gold {
+    background: var(--ku-gold);
+    color: var(--ku-navy-dark);
+  }
+
+  .btn-light {
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+
+  .btn-primary {
+    background: var(--ku-navy);
+    color: #fff;
+  }
+
+  .btn-danger {
+    background: #DC2626;
+    color: #fff;
+  }
+
+  .btn-sm {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .local-strip {
+    background: #0A1B3D;
+    color: #E2E8F0;
+    padding: 7px 16px;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    background: #38BDF8;
+  }
+
+  .mode-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px 14px 4px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .mode-tab {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 12px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--ku-navy);
+    cursor: pointer;
+  }
+
+  .mode-tab.active {
+    background: var(--ku-navy);
+    color: #fff;
+    border-color: var(--ku-gold);
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 10px 14px 24px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(16, 32, 56, 0.05);
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ku-navy);
+    margin: 0 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 10px;
+  }
+
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text);
+    background: #FAFCFF;
+  }
+
+  input:disabled, select:disabled, textarea:disabled {
+    background: #EEF2F6;
+    color: #64748B;
+  }
+
+  .legend-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+    background: #F8FAFC;
+    border: 1px dashed var(--border);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .section-banner {
+    background: var(--ku-navy);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    margin: 14px 0 8px;
+    border-left: 4px solid var(--ku-gold);
+  }
+
+  .check-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+
+  .check-text {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .code-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .code-btn {
+    border: 1px solid var(--border);
+    background: #F8FAFC;
+    color: var(--text);
+    border-radius: 6px;
+    padding: 6px 11px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .code-btn.sel-C { background: var(--c-bg); color: var(--c-fg); border-color: #16A34A; }
+  .code-btn.sel-NC { background: var(--nc-bg); color: var(--nc-fg); border-color: #DC2626; }
+  .code-btn.sel-OBS { background: var(--obs-bg); color: var(--obs-fg); border-color: #D97706; }
+  .code-btn.sel-NA { background: var(--na-bg); color: var(--na-fg); border-color: #64748B; }
+
+  .meta-line {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  canvas.sig-pad {
+    width: 100%;
+    height: 120px;
+    border: 1.5px dashed var(--ku-navy);
+    border-radius: 8px;
+    background: #FFFFFF;
+    touch-action: none;
+  }
+
+  .login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: linear-gradient(160deg, var(--ku-navy-dark) 0%, var(--ku-navy) 55%, var(--ku-blue) 100%);
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 410px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px;
+    border-top: 5px solid var(--ku-gold);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.3);
+  }
+
+  .quick-fill-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .badge-open {
+    background: #DCFCE7;
+    color: #166534;
+  }
+
+  .remarks-feed {
+    max-height: 230px;
+    overflow-y: auto;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .remark-entry {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .remark-meta {
+    font-size: 10px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .saved-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #F8FAFC;
+    margin-bottom: 6px;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+
+  .toast-banner {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    z-index: 95;
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--ku-navy-dark);
+    color: #FFFFFF;
+    border: 2px solid var(--ku-gold);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 85;
+    background: rgba(10, 20, 40, 0.58);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 14px;
+    overflow-y: auto;
+  }
+
+  @media print {
+    header.app-header,
+    .local-strip,
+    .mode-bar,
+    .no-print,
+    .toast-banner,
+    .modal-backdrop {
+      display: none !important;
+    }
+    body {
+      background: #fff;
+      padding: 0;
+    }
+    .card {
+      box-shadow: none;
+      border: 1px solid #999;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Login Screen with Two Fixed Accounts & Quick-Fill Buttons -->
+<div id="loginView" class="login-screen">
+  <div class="login-box">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div class="ku-emblem">KU<span class="sub">CMB</span></div>
+      <div>
+        <div style="font-size:16px;font-weight:900;color:var(--ku-navy);">KUWAIT AIRWAYS</div>
+        <div style="font-size:12px;color:var(--muted);">GHA On-Spot Monitoring • Station CMB</div>
+      </div>
+    </div>
+
+    <div class="quick-fill-row">
+      <button type="button" class="btn btn-gold btn-sm" onclick="quickFillUser('user1')">Quick Fill: user1</button>
+      <button type="button" class="btn btn-gold btn-sm" onclick="quickFillUser('user2')">Quick Fill: user2</button>
+    </div>
+
+    <div style="margin-bottom:10px;">
+      <label for="loginUser">Username</label>
+      <input id="loginUser" type="text" placeholder="Enter user1 or user2" autocomplete="username" />
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <label for="loginPass">Password</label>
+      <input id="loginPass" type="password" placeholder="Enter password (pass123)" autocomplete="current-password" />
+    </div>
+
+    <button id="loginSubmitBtn" type="button" class="btn btn-primary" style="width:100%;padding:11px;font-size:13px;" onclick="handleLogin()">
+      Sign In to Checklist
+    </button>
+
+    <div class="meta-line" style="margin-top:10px;text-align:center;">
+      Accounts: <b>user1</b> / <b>pass123</b> &nbsp;•&nbsp; <b>user2</b> / <b>pass123</b>
+    </div>
+
+    <div id="loginError" role="alert" style="color:#DC2626;font-size:12px;font-weight:700;margin-top:10px;min-height:16px;"></div>
+  </div>
+</div>
+
+<!-- Toast Notification Banner -->
+<div id="toastBanner" class="toast-banner no-print">
+  <span id="toastMessage"></span>
+  <button type="button" class="btn btn-gold btn-sm" onclick="hideToast()">OK</button>
+</div>
+
+<!-- Main Application View -->
+<div id="appView" style="display:none;">
+  <header class="app-header">
+    <div class="header-top">
+      <div class="brand-row">
+        <div class="ku-emblem">KU<span class="sub">CMB</span></div>
+        <div>
+          <div class="brand-title">KUWAIT AIRWAYS • ON-SPOT MONITORING</div>
+          <div class="brand-sub">Station: CMB • GHA: SriLankan Airlines • User: <span id="currentUserBadge"></span></div>
+        </div>
+      </div>
+      <div class="header-actions no-print">
+        <button id="installBtn" type="button" class="btn btn-gold btn-sm" style="display:none;" onclick="installPWA()">Install App</button>
+        <button type="button" class="btn btn-gold btn-sm" onclick="openFinalReportModal()">Save &amp; PDF Report</button>
+        <button type="button" class="btn btn-light btn-sm" onclick="logoutUser()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="local-strip no-print">
+    <div>
+      <span class="dot"></span>
+      <span>Local Browser Storage Mode (Saved automatically on this device)</span>
+    </div>
+    <button type="button" class="btn btn-light btn-sm" onclick="resetCurrentFlightLog()">Clear Flight Log</button>
+  </div>
+
+  <!-- Sub-tab Bar: Unified Turnaround Checklist & Timings vs Photo Proofs -->
+  <div class="mode-bar no-print" style="padding-top:10px;">
+    <button id="subTabChecklist" type="button" class="mode-tab active" onclick="switchWorkspaceTab('checklist')">TURNAROUND CHECKLIST &amp; TIMINGS</button>
+    <button id="subTabPhotos" type="button" class="mode-tab" onclick="switchWorkspaceTab('photos')">PHOTO PROOFS (<span id="photoProofCount">0</span>)</button>
+  </div>
+
+  <!-- Checklist & Timings Workspace -->
+  <div id="checklistWorkspace" class="container">
+    <!-- 1. Flight & Inspection Details -->
+    <div class="card">
+      <div class="card-title">
+        <span>1. Flight &amp; Inspection Details (Arrival &amp; Departure)</span>
+        <span class="badge badge-open" id="opBadge">ARRIVAL &amp; DEPARTURE</span>
+      </div>
+      <div class="grid-2">
+        <div>
+          <label for="fStation">Station</label>
+          <input id="fStation" type="text" value="CMB" disabled />
+        </div>
+        <div>
+          <label for="fGha">GHA</label>
+          <input id="fGha" type="text" value="SriLankan Airlines" disabled />
+        </div>
+        <div>
+          <label for="fArrFlightNo">Arrival Flight No.</label>
+          <input id="fArrFlightNo" type="text" placeholder="e.g. KU 401" oninput="updateHeaderField('arrFlightNo', this.value)" />
+        </div>
+        <div>
+          <label for="fDepFlightNo">Departure Flight No.</label>
+          <input id="fDepFlightNo" type="text" placeholder="e.g. KU 402" oninput="updateHeaderField('depFlightNo', this.value)" />
+        </div>
+        <div>
+          <label for="fDate">Flight Date</label>
+          <input id="fDate" type="date" onchange="updateHeaderField('date', this.value)" />
+        </div>
+        <div>
+          <label for="fAircraftReg">Aircraft Registration</label>
+          <input id="fAircraftReg" type="text" placeholder="e.g. 9K-AOA" oninput="updateHeaderField('aircraftReg', this.value)" />
+        </div>
+        <div>
+          <label for="fBayNo">Stand / Bay No.</label>
+          <input id="fBayNo" type="text" placeholder="e.g. Bay 14" oninput="updateHeaderField('bayNo', this.value)" />
+        </div>
+        <div>
+          <label for="fInspector">Inspection Conducted By</label>
+          <input id="fInspector" type="text" placeholder="Inspector name" oninput="updateHeaderField('inspector', this.value)" />
+        </div>
+      </div>
+
+      <div class="legend-bar" style="margin-top:12px;">
+        <strong>Status Codes:</strong>
+        <span><b>C</b> – Compliant</span>
+        <span><b>NC</b> – Non-Compliant</span>
+        <span><b>OBS</b> – Observation</span>
+        <span><b>N/A</b> – Not Applicable</span>
+      </div>
+    </div>
+
+    <!-- Major Operational Timings (Both Arrival & Departure in One) -->
+    <div id="timingsCard" class="card" style="border-top:4px solid var(--ku-navy);">
+      <div class="card-title">
+        <span>Major Operational Timings — Arrival &amp; Departure</span>
+        <span style="font-size:11px;color:var(--muted);">Includes Chocks On, Chocks Off &amp; key turnaround milestones</span>
+      </div>
+
+      <div class="section-banner" style="margin-top:4px;">ARRIVAL TIMINGS</div>
+      <div id="arrivalTimingsGrid" class="grid-2" style="margin-bottom:10px;"></div>
+
+      <div class="section-banner">DEPARTURE TIMINGS</div>
+      <div id="departureTimingsGrid" class="grid-2"></div>
+    </div>
+
+    <!-- Checklist Items (Sections A through F) -->
+    <div id="checklistContainer"></div>
+
+    <!-- Dedicated Remarks Section -->
+    <div class="card" style="border-top:4px solid var(--ku-blue);">
+      <div class="card-title">
+        <span>Turnaround Remarks</span>
+        <span style="font-size:11px;color:var(--muted);">Included in saved &amp; PDF final report</span>
+      </div>
+      <div id="remarksFeed" class="remarks-feed"></div>
+      <div class="no-print" style="display:flex;gap:8px;align-items:center;">
+        <input id="remarkBoxInput" type="text" placeholder="Type operational remark and press Add Remark..." onkeydown="if(event.key==='Enter') addRemarkEntry()" />
+        <button type="button" class="btn btn-primary btn-sm" onclick="addRemarkEntry()">Add Remark</button>
+      </div>
+    </div>
+
+    <!-- 2. Findings and Corrective Actions -->
+    <div class="card">
+      <div class="card-title">2. Findings and Corrective Actions</div>
+
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;">Finding 01 — Risk Level: Critical / Major / Minor</div>
+      <div class="grid-2" style="margin-bottom:10px;">
+        <div>
+          <label for="find1Desc">Description of Deficiency</label>
+          <input id="find1Desc" type="text" oninput="updateFinding('f1Desc', this.value)" />
+        </div>
+        <div>
+          <label for="find1Risk">Risk Level</label>
+          <select id="find1Risk" onchange="updateFinding('f1Risk', this.value)">
+            <option value="">Select</option>
+            <option>Critical</option>
+            <option>Major</option>
+            <option>Minor</option>
+          </select>
+        </div>
+        <div>
+          <label for="find1Act">Immediate Action</label>
+          <input id="find1Act" type="text" oninput="updateFinding('f1Act', this.value)" />
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;">Finding 02 — Risk Level: Critical / Major / Minor</div>
+      <div class="grid-2" style="margin-bottom:10px;">
+        <div>
+          <label for="find2Desc">Description of Deficiency</label>
+          <input id="find2Desc" type="text" oninput="updateFinding('f2Desc', this.value)" />
+        </div>
+        <div>
+          <label for="find2Risk">Risk Level</label>
+          <select id="find2Risk" onchange="updateFinding('f2Risk', this.value)">
+            <option value="">Select</option>
+            <option>Critical</option>
+            <option>Major</option>
+            <option>Minor</option>
+          </select>
+        </div>
+        <div>
+          <label for="find2Act">Immediate Action</label>
+          <input id="find2Act" type="text" oninput="updateFinding('f2Act', this.value)" />
+        </div>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;">Finding 03 — Risk Level: Critical / Major / Minor</div>
+      <div class="grid-2">
+        <div>
+          <label for="find3Desc">Description of Deficiency</label>
+          <input id="find3Desc" type="text" oninput="updateFinding('f3Desc', this.value)" />
+        </div>
+        <div>
+          <label for="find3Risk">Risk Level</label>
+          <select id="find3Risk" onchange="updateFinding('f3Risk', this.value)">
+            <option value="">Select</option>
+            <option>Critical</option>
+            <option>Major</option>
+            <option>Minor</option>
+          </select>
+        </div>
+        <div>
+          <label for="find3Act">Immediate Action</label>
+          <input id="find3Act" type="text" oninput="updateFinding('f3Act', this.value)" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Overall Inspection Assessment & Acknowledgement -->
+    <div class="card">
+      <div class="card-title">3. Overall Inspection Assessment &amp; Acknowledgement</div>
+      <div class="grid-2" style="margin-bottom:12px;">
+        <div>
+          <label for="overallResult">Overall Result</label>
+          <select id="overallResult" onchange="updateAssessment('overallResult', this.value)">
+            <option value="">Select result</option>
+            <option>Compliant</option>
+            <option>Satisfactory with Observations</option>
+            <option>Unsatisfactory</option>
+          </select>
+        </div>
+        <div>
+          <label for="correctiveReq">Corrective Action Required</label>
+          <select id="correctiveReq" onchange="updateAssessment('correctiveReq', this.value)">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </div>
+        <div>
+          <label for="followupReq">Follow-up Inspection Required</label>
+          <select id="followupReq" onchange="updateAssessment('followupReq', this.value)">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="airlineRepName">Airline Representative Name</label>
+          <input id="airlineRepName" type="text" oninput="updateAssessment('airlineRepName', this.value)" />
+          <label style="margin-top:8px;">Airline Representative Signature</label>
+          <canvas id="sigAirline" class="sig-pad" width="400" height="120"></canvas>
+          <button type="button" class="btn btn-light btn-sm no-print" style="background:#EEF2F6;color:var(--text);margin-top:4px;" onclick="clearSig('airline')">Clear Signature</button>
+        </div>
+        <div>
+          <label for="ghaRepName">GHA Representative Name</label>
+          <input id="ghaRepName" type="text" oninput="updateAssessment('ghaRepName', this.value)" />
+          <label style="margin-top:8px;">GHA Representative Signature</label>
+          <canvas id="sigGha" class="sig-pad" width="400" height="120"></canvas>
+          <button type="button" class="btn btn-light btn-sm no-print" style="background:#EEF2F6;color:var(--text);margin-top:4px;" onclick="clearSig('gha')">Clear Signature</button>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <label for="ackDateTime">Date / Time</label>
+        <input id="ackDateTime" type="datetime-local" onchange="updateAssessment('ackDateTime', this.value)" />
+      </div>
+
+      <div class="no-print" style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+        <button id="btnSaveFinalReport" type="button" class="btn btn-primary" onclick="saveFinalReport()">Save Final Report</button>
+        <button id="btnSaveAndPdf" type="button" class="btn btn-gold" onclick="saveAndPrintFinalReport()">Save &amp; Generate PDF</button>
+        <button id="btnPreviewReport" type="button" class="btn btn-light" style="background:#EFF6FF;color:var(--ku-navy);border-color:#BFDBFE;" onclick="openFinalReportModal()">Preview Report</button>
+      </div>
+    </div>
+
+    <!-- Saved Final Reports Archive -->
+    <div id="savedReportsCard" class="card no-print" style="border-top:4px solid var(--ku-navy);">
+      <div class="card-title">
+        <span>Saved Final Reports</span>
+        <span id="savedReportsCount" class="badge badge-open">0 Saved</span>
+      </div>
+      <div id="savedReportsList">
+        <div class="meta-line">No final reports saved yet.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Proofs Workspace Tab -->
+  <div id="photosWorkspace" class="container" style="display:none;">
+    <div class="card" style="border-top:4px solid var(--ku-gold);">
+      <div class="card-title">
+        <span>Flight Photo Proofs (Arrival &amp; Departure)</span>
+        <span style="font-size:11px;color:var(--muted);">All attached photos are embedded into the PDF report</span>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:10px;">
+        <div>
+          <label for="photoPhaseSelect">Operation Phase</label>
+          <select id="photoPhaseSelect">
+            <option value="Arrival">Arrival</option>
+            <option value="Departure">Departure</option>
+            <option value="Turnaround">Turnaround / Ramp</option>
+          </select>
+        </div>
+        <div>
+          <label for="photoCaptionInput">Photo / Proof Caption or Item Ref</label>
+          <input id="photoCaptionInput" type="text" placeholder="e.g. Chocks On / Hold secured / Item #14" />
+        </div>
+        <div style="grid-column:1/-1;">
+          <label>Attach Photo Proof</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-primary btn-sm" onclick="triggerPhotoPicker('file')">Choose from Files / Gallery</button>
+            <button type="button" class="btn btn-gold btn-sm" onclick="triggerPhotoPicker('camera')">Take Photo (Camera)</button>
+          </div>
+          <input id="photoFileInput" type="file" accept="image/*" multiple style="display:none;" onchange="handlePhotoFileSelect(this)" />
+          <input id="photoCameraInput" type="file" accept="image/*" capture="environment" style="display:none;" onchange="handlePhotoFileSelect(this)" />
+        </div>
+      </div>
+
+      <div class="meta-line">
+        Photos are optimized as high-clarity JPEG images, stored locally on this device, and embedded directly inside your exported PDF report.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span>Attached Photo Proofs (<span id="photoGalleryCount">0</span>)</span>
+      </div>
+      <div id="photoGalleryGrid" class="grid-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Final Report Preview & PDF Export Modal -->
+<div id="finalReportModal" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-labelledby="finalReportModalTitle">
+  <div style="background:#FFFFFF;width:100%;max-width:780px;border-radius:14px;padding:18px;border-top:5px solid var(--ku-gold);box-shadow:0 18px 44px rgba(0,0,0,0.35);margin:auto;">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+      <div>
+        <div id="finalReportModalTitle" style="font-size:16px;font-weight:900;color:var(--ku-navy);">Final Inspection Report (PDF Ready)</div>
+        <div style="font-size:11px;color:var(--muted);">Kuwait Airways • Station CMB • GHA: SriLankan Airlines</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <button type="button" class="btn btn-primary btn-sm" onclick="saveFinalReport()">Save Report</button>
+        <button type="button" class="btn btn-gold btn-sm" onclick="downloadFinalReportPDF()">Download PDF</button>
+        <button type="button" class="btn btn-light btn-sm" style="background:#EEF2F6;color:var(--text);" onclick="printFinalReportPDF()">Print / Save PDF</button>
+        <button type="button" class="btn btn-light btn-sm" style="background:#EEF2F6;color:var(--text);" onclick="downloadReportHtmlFile()">Download File</button>
+        <button type="button" class="btn btn-danger btn-sm" onclick="closeFinalReportModal()">Close</button>
+      </div>
+    </div>
+    <div id="finalReportPreviewBody" style="border:1px solid var(--border);border-radius:10px;padding:14px;background:#FFFFFF;max-height:70vh;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<script>
+// Two fixed local accounts allowed to sign in
+const ALLOWED_USERS = [
+  { username: "user1", password: "pass123", displayName: "User 1" },
+  { username: "user2", password: "pass123", displayName: "User 2" }
+];
+
+const STORAGE_KEY = "ku_cmb_local_only_v1";
+
+// Checklist sections A through F (items 12, 30, and 34 removed)
+const CHECKLIST_SECTIONS = [
+  {
+    section: "A. CHECK-IN OPERATIONS",
+    items: [
+      { id: 1, text: "Adequate trained staff deployed at check-in counters" },
+      { id: 2, text: "Staff hold valid Kuwait Airways product training" },
+      { id: 3, text: "Correct flight information displayed" },
+      { id: 4, text: "Passenger document verification properly conducted" },
+      { id: 5, text: "Correct passenger and baggage details entered in DCS" },
+      { id: 6, text: "Excess baggage charges correctly collected and receipted" },
+      { id: 7, text: "Special passengers properly identified and handled" }
+    ]
+  },
+  {
+    section: "B. BAGGAGE SORTING",
+    items: [
+      { id: 8, text: "Baggage correctly sorted according to flight and destination" },
+      { id: 9, text: "Baggage reconciliation completed" },
+      { id: 10, text: "Rush and transfer baggage properly identified" },
+      { id: 11, text: "Unidentified baggage appropriately isolated" }
+    ]
+  },
+  {
+    section: "C. RAMP OPERATIONS",
+    items: [
+      { id: 13, text: "Ramp staff wearing required PPE" },
+      { id: 14, text: "GSE positioned safely around aircraft" },
+      { id: 15, text: "Aircraft safety zones maintained" },
+      { id: 16, text: "FOD inspection conducted" },
+      { id: 17, text: "GSE serviceability verified" },
+      { id: 18, text: "Ramp safety procedures followed" }
+    ]
+  },
+  {
+    section: "D. LOADING / UNLOADING",
+    items: [
+      { id: 19, text: "Loading carried out according to approved loading instructions" },
+      { id: 20, text: "Correct ULDs used for aircraft positions" },
+      { id: 21, text: "Baggage and cargo properly secured" },
+      { id: 22, text: "Loading discrepancies reported and resolved" },
+      { id: 23, text: "Baggage and ULD counts reconciled" },
+      { id: 24, text: "Aircraft holds properly checked and secured" }
+    ]
+  },
+  {
+    section: "E. ENGINEERING / TECHNICAL CLEARANCE",
+    items: [
+      { id: 25, text: "Reported aircraft defects communicated to engineering" },
+      { id: 26, text: "Technical inspections conducted by authorised personnel" },
+      { id: 27, text: "Technical log requirements completed by authorised personnel" },
+      { id: 28, text: "Required technical clearance confirmed before departure" }
+    ]
+  },
+  {
+    section: "F. DEPARTURE / TURNAROUND",
+    items: [
+      { id: 29, text: "Passenger boarding carried out according to procedure" },
+      { id: 31, text: "Final loadsheet and relevant documents confirmed" },
+      { id: 32, text: "All ground equipment removed before departure" },
+      { id: 33, text: "Pushback procedures followed correctly" }
+    ]
+  }
+];
+
+// Major operational timings for Arrival and Departure (including Chocks On & Chocks Off)
+const TIMING_FIELDS_BY_OP = {
+  Arrival: [
+    { key: "eta", label: "ETA (Scheduled Arrival)", type: "time" },
+    { key: "ata", label: "ATA (Touchdown)", type: "time" },
+    { key: "chocksOn", label: "Chocks On Time", type: "time" },
+    { key: "cabinDoorOpen", label: "Cabin Door Open", type: "time" },
+    { key: "cargoHoldOpen", label: "Cargo Hold Open", type: "time" },
+    { key: "firstBagOnBelt", label: "First Bag on Belt", type: "time" },
+    { key: "lastBagOnBelt", label: "Last Bag on Belt", type: "time" },
+    { key: "arrivalNotes", label: "Arrival Timing Notes", type: "text" }
+  ],
+  Departure: [
+    { key: "std", label: "STD (Scheduled Departure)", type: "time" },
+    { key: "boardingStarted", label: "Boarding Started", type: "time" },
+    { key: "boardingCompleted", label: "Boarding Completed", type: "time" },
+    { key: "finalLoadsheet", label: "Final Loadsheet Confirmed", type: "time" },
+    { key: "cabinDoorClosed", label: "Cabin Door Closed", type: "time" },
+    { key: "chocksOff", label: "Chocks Off Time", type: "time" },
+    { key: "pushbackTime", label: "Pushback Time", type: "time" },
+    { key: "atd", label: "ATD (Takeoff)", type: "time" }
+  ]
+};
+
+function emptyUnifiedRecord() {
+  const items = {};
+  CHECKLIST_SECTIONS.forEach(sec => {
+    sec.items.forEach(it => {
+      items[it.id] = { code: "", remark: "", updatedBy: "", updatedAt: "" };
+    });
+  });
+
+  return {
+    header: {
+      arrFlightNo: "",
+      depFlightNo: "",
+      date: new Date().toISOString().slice(0, 10),
+      aircraftReg: "",
+      bayNo: "",
+      inspector: ""
+    },
+    arrivalTimings: {
+      eta: "",
+      ata: "",
+      chocksOn: "",
+      cabinDoorOpen: "",
+      cargoHoldOpen: "",
+      firstBagOnBelt: "",
+      lastBagOnBelt: "",
+      arrivalNotes: ""
+    },
+    departureTimings: {
+      std: "",
+      boardingStarted: "",
+      boardingCompleted: "",
+      finalLoadsheet: "",
+      cabinDoorClosed: "",
+      chocksOff: "",
+      pushbackTime: "",
+      atd: ""
+    },
+    items,
+    photos: [],
+    remarks: [],
+    findings: {
+      f1Desc: "", f1Risk: "", f1Act: "",
+      f2Desc: "", f2Risk: "", f2Act: "",
+      f3Desc: "", f3Risk: "", f3Act: ""
+    },
+    assessment: {
+      overallResult: "",
+      correctiveReq: "No",
+      followupReq: "No",
+      airlineRepName: "",
+      ghaRepName: "",
+      ackDateTime: "",
+      sigAirline: "",
+      sigGha: ""
+    }
+  };
+}
+
+function createInitialLocalState() {
+  return {
+    record: emptyUnifiedRecord(),
+    finalReports: []
+  };
+}
+
+function loadLocalState() {
+  const fallback = createInitialLocalState();
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return fallback;
+    const parsed = JSON.parse(raw);
+    const def = emptyUnifiedRecord();
+
+    if (parsed.record) {
+      const recIn = parsed.record;
+      return {
+        record: {
+          header: { ...def.header, ...(recIn.header || {}) },
+          arrivalTimings: { ...def.arrivalTimings, ...(recIn.arrivalTimings || {}) },
+          departureTimings: { ...def.departureTimings, ...(recIn.departureTimings || {}) },
+          items: { ...def.items, ...(recIn.items || {}) },
+          photos: Array.isArray(recIn.photos) ? recIn.photos : [],
+          remarks: Array.isArray(recIn.remarks) ? recIn.remarks : [],
+          findings: { ...def.findings, ...(recIn.findings || {}) },
+          assessment: { ...def.assessment, ...(recIn.assessment || {}) }
+        },
+        finalReports: Array.isArray(parsed.finalReports) ? parsed.finalReports : []
+      };
+    }
+
+    const arrIn = (parsed.records && parsed.records.Arrival) || {};
+    const depIn = (parsed.records && parsed.records.Departure) || {};
+    const mergedPhotos = [
+      ...(Array.isArray(arrIn.photos) ? arrIn.photos : []),
+      ...(Array.isArray(depIn.photos) ? depIn.photos : [])
+    ];
+    const mergedRemarks = [
+      ...(Array.isArray(arrIn.remarks) ? arrIn.remarks : []),
+      ...(Array.isArray(depIn.remarks) ? depIn.remarks : [])
+    ];
+
+    return {
+      record: {
+        header: {
+          ...def.header,
+          arrFlightNo: (arrIn.header && arrIn.header.flightNo) || "",
+          depFlightNo: (depIn.header && depIn.header.flightNo) || "",
+          date: (arrIn.header && arrIn.header.date) || (depIn.header && depIn.header.date) || def.header.date,
+          aircraftReg: (arrIn.header && arrIn.header.aircraftReg) || (depIn.header && depIn.header.aircraftReg) || "",
+          inspector: (arrIn.header && arrIn.header.inspector) || (depIn.header && depIn.header.inspector) || ""
+        },
+        arrivalTimings: { ...def.arrivalTimings, ...(arrIn.timings || {}) },
+        departureTimings: { ...def.departureTimings, ...(depIn.timings || {}) },
+        items: { ...def.items, ...(arrIn.items || {}), ...(depIn.items || {}) },
+        photos: mergedPhotos,
+        remarks: mergedRemarks,
+        findings: { ...def.findings, ...(arrIn.findings || {}) },
+        assessment: { ...def.assessment, ...(arrIn.assessment || {}) }
+      },
+      finalReports: Array.isArray(parsed.finalReports) ? parsed.finalReports : []
+    };
+  } catch (err) {
+    return fallback;
+  }
+}
+
+let state = loadLocalState();
+let currentUser = null;
+let activeWorkspaceTab = "checklist";
+let toastTimer = null;
+let deferredInstallPrompt = null;
+
+function saveLocalState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (err) {
+    showToast("Storage full — remove an old photo or report if needed.");
+  }
+}
+
+function showToast(msg) {
+  const banner = document.getElementById("toastBanner");
+  const text = document.getElementById("toastMessage");
+  if (!banner || !text) return;
+  text.textContent = msg;
+  banner.style.display = "flex";
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    banner.style.display = "none";
+  }, 3600);
+}
+
+function hideToast() {
+  const banner = document.getElementById("toastBanner");
+  if (banner) banner.style.display = "none";
+}
+
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function escapeAttr(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// PWA Install prompt handling
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  const btn = document.getElementById("installBtn");
+  if (btn) btn.style.display = "inline-flex";
+});
+
+function installPWA() {
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  deferredInstallPrompt.userChoice.then(() => {
+    deferredInstallPrompt = null;
+    const btn = document.getElementById("installBtn");
+    if (btn) btn.style.display = "none";
+  });
+}
+
+// Authentication for two fixed users
+function quickFillUser(username) {
+  const acc = ALLOWED_USERS.find(u => u.username === username);
+  if (!acc) return;
+  document.getElementById("loginUser").value = acc.username;
+  document.getElementById("loginPass").value = acc.password;
+  document.getElementById("loginError").textContent = "";
+}
+
+function handleLogin() {
+  const uInput = document.getElementById("loginUser").value.trim().toLowerCase();
+  const pInput = document.getElementById("loginPass").value;
+  const errEl = document.getElementById("loginError");
+
+  const matched = ALLOWED_USERS.find(u => u.username === uInput && u.password === pInput);
+  if (!matched) {
+    errEl.textContent = "Invalid credentials. Use user1 / pass123 or user2 / pass123.";
+    return;
+  }
+
+  errEl.textContent = "";
+  currentUser = matched;
+  try {
+    sessionStorage.setItem("ku_cmb_active_user", matched.username);
+  } catch (e) {}
+
+  document.getElementById("loginView").style.display = "none";
+  document.getElementById("appView").style.display = "block";
+  document.getElementById("currentUserBadge").textContent = `${matched.displayName} (${matched.username})`;
+
+  initSignaturePads();
+  switchWorkspaceTab("checklist");
+  renderAll();
+  showToast(`Signed in as ${matched.displayName}.`);
+}
+
+function logoutUser() {
+  currentUser = null;
+  try {
+    sessionStorage.removeItem("ku_cmb_active_user");
+  } catch (e) {}
+  closeFinalReportModal();
+  document.getElementById("appView").style.display = "none";
+  document.getElementById("loginView").style.display = "flex";
+  document.getElementById("loginPass").value = "";
+}
+
+function switchWorkspaceTab(tab) {
+  if (tab !== "checklist" && tab !== "photos") return;
+  activeWorkspaceTab = tab;
+  const checklistEl = document.getElementById("checklistWorkspace");
+  const photosEl = document.getElementById("photosWorkspace");
+  const subChecklist = document.getElementById("subTabChecklist");
+  const subPhotos = document.getElementById("subTabPhotos");
+
+  if (checklistEl) checklistEl.style.display = tab === "checklist" ? "block" : "none";
+  if (photosEl) photosEl.style.display = tab === "photos" ? "block" : "none";
+  if (subChecklist) subChecklist.classList.toggle("active", tab === "checklist");
+  if (subPhotos) subPhotos.classList.toggle("active", tab === "photos");
+
+  if (tab === "photos") {
+    renderPhotoProofs();
+  }
+}
+
+function updateHeaderField(field, value) {
+  if (!currentUser) return;
+  state.record.header[field] = value;
+  saveLocalState();
+}
+
+function renderTimings() {
+  const rec = state.record;
+  const arrDefs = TIMING_FIELDS_BY_OP.Arrival || [];
+  const depDefs = TIMING_FIELDS_BY_OP.Departure || [];
+  const arrGrid = document.getElementById("arrivalTimingsGrid");
+  const depGrid = document.getElementById("departureTimingsGrid");
+
+  if (arrGrid) {
+    arrGrid.innerHTML = arrDefs.map(df => {
+      const val = (rec.arrivalTimings && rec.arrivalTimings[df.key]) || "";
+      const ph = df.type === "text" ? "Optional notes" : "HH:MM";
+      return `
+        <div>
+          <label for="arr_timing_${escapeAttr(df.key)}">${escapeHtml(df.label)}</label>
+          <input
+            id="arr_timing_${escapeAttr(df.key)}"
+            type="${df.type}"
+            value="${escapeAttr(val)}"
+            placeholder="${escapeAttr(ph)}"
+            oninput="updateTimingField('Arrival', '${escapeAttr(df.key)}', this.value)"
+            onchange="updateTimingField('Arrival', '${escapeAttr(df.key)}', this.value)"
+          />
+        </div>
+      `;
+    }).join("");
+  }
+
+  if (depGrid) {
+    depGrid.innerHTML = depDefs.map(df => {
+      const val = (rec.departureTimings && rec.departureTimings[df.key]) || "";
+      const ph = df.type === "text" ? "Optional notes" : "HH:MM";
+      return `
+        <div>
+          <label for="dep_timing_${escapeAttr(df.key)}">${escapeHtml(df.label)}</label>
+          <input
+            id="dep_timing_${escapeAttr(df.key)}"
+            type="${df.type}"
+            value="${escapeAttr(val)}"
+            placeholder="${escapeAttr(ph)}"
+            oninput="updateTimingField('Departure', '${escapeAttr(df.key)}', this.value)"
+            onchange="updateTimingField('Departure', '${escapeAttr(df.key)}', this.value)"
+          />
+        </div>
+      `;
+    }).join("");
+  }
+}
+
+function updateTimingField(phase, key, value) {
+  if (!currentUser) return;
+  const bucket = phase === "Departure" ? "departureTimings" : "arrivalTimings";
+  if (!state.record[bucket]) state.record[bucket] = {};
+  state.record[bucket][key] = value;
+  saveLocalState();
+}
+
+function renderChecklist() {
+  const rec = state.record;
+  const container = document.getElementById("checklistContainer");
+  if (!container) return;
+
+  container.innerHTML = CHECKLIST_SECTIONS.map(sec => {
+    const itemsHtml = sec.items.map(it => {
+      const entry = rec.items[it.id] || { code: "", remark: "", updatedBy: "", updatedAt: "" };
+      const codes = ["C", "NC", "OBS", "NA"];
+      const btnsHtml = codes.map(c => {
+        const activeClass = entry.code === c ? `sel-${c}` : "";
+        const label = c === "NA" ? "N/A" : c;
+        return `<button type="button" class="code-btn ${activeClass}" onclick="setItemCode(${it.id}, '${c}')">${label}</button>`;
+      }).join("");
+
+      const meta = entry.updatedBy
+        ? `Updated by <b>${escapeHtml(entry.updatedBy)}</b> • ${escapeHtml(entry.updatedAt)}`
+        : "Not yet marked";
+
+      return `
+        <div class="check-item">
+          <div class="check-text">${it.id}. ${escapeHtml(it.text)}</div>
+          <div class="code-group">${btnsHtml}</div>
+          <input
+            type="text"
+            placeholder="Item remark / note..."
+            value="${escapeAttr(entry.remark)}"
+            oninput="setItemRemark(${it.id}, this.value)"
+          />
+          <div class="meta-line">${meta}</div>
+        </div>
+      `;
+    }).join("");
+
+    return `<div class="section-banner">${escapeHtml(sec.section)}</div>${itemsHtml}`;
+  }).join("");
+}
+
+function setItemCode(itemId, code) {
+  if (!currentUser) return;
+  const entry = state.record.items[itemId] || { code: "", remark: "", updatedBy: "", updatedAt: "" };
+  entry.code = entry.code === code ? "" : code;
+  entry.updatedBy = currentUser.username;
+  entry.updatedAt = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  state.record.items[itemId] = entry;
+  saveLocalState();
+  renderChecklist();
+}
+
+function setItemRemark(itemId, remark) {
+  if (!currentUser) return;
+  const entry = state.record.items[itemId] || { code: "", remark: "", updatedBy: "", updatedAt: "" };
+  entry.remark = remark;
+  entry.updatedBy = currentUser.username;
+  entry.updatedAt = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  state.record.items[itemId] = entry;
+  saveLocalState();
+}
+
+// Remarks list
+function renderRemarks() {
+  const rec = state.record;
+  const remarks = Array.isArray(rec.remarks) ? rec.remarks : [];
+  const feedEl = document.getElementById("remarksFeed");
+  if (!feedEl) return;
+
+  if (!remarks.length) {
+    feedEl.innerHTML = `<div class="meta-line" style="text-align:center;">No remarks added yet for this turnaround flight.</div>`;
+    return;
+  }
+
+  feedEl.innerHTML = remarks.map(r => `
+    <div class="remark-entry">
+      <div class="remark-meta">
+        <span>${escapeHtml(r.by)} • ${escapeHtml(r.time)}</span>
+        <button type="button" class="btn btn-danger btn-sm" style="padding:2px 7px;font-size:10px;" onclick="deleteRemarkEntry('${escapeAttr(r.id)}')">Delete</button>
+      </div>
+      <div>${escapeHtml(r.text)}</div>
+    </div>
+  `).join("");
+  feedEl.scrollTop = feedEl.scrollHeight;
+}
+
+function addRemarkEntry() {
+  if (!currentUser) return;
+  const input = document.getElementById("remarkBoxInput");
+  const txt = (input ? input.value : "").trim();
+  if (!txt) return;
+
+  const rec = state.record;
+  if (!Array.isArray(rec.remarks)) rec.remarks = [];
+  rec.remarks.push({
+    id: `rm_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+    by: currentUser.username,
+    time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    text: txt
+  });
+
+  if (input) input.value = "";
+  saveLocalState();
+  renderRemarks();
+}
+
+function deleteRemarkEntry(id) {
+  const rec = state.record;
+  if (!rec || !Array.isArray(rec.remarks)) return;
+  rec.remarks = rec.remarks.filter(r => r.id !== id);
+  saveLocalState();
+  renderRemarks();
+}
+
+// Photo proofs management
+function triggerPhotoPicker(source) {
+  if (!currentUser) return;
+  const targetId = source === "camera" ? "photoCameraInput" : "photoFileInput";
+  const input = document.getElementById(targetId);
+  if (input) {
+    input.value = "";
+    input.click();
+  }
+}
+
+function compressImageFile(file, maxWidth = 1000, quality = 0.8) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Failed to read image file."));
+    reader.onload = () => {
+      const img = new Image();
+      img.onerror = () => reject(new Error("Invalid image data."));
+      img.onload = () => {
+        const scale = img.width > maxWidth ? maxWidth / img.width : 1;
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", quality));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handlePhotoFileSelect(inputEl) {
+  if (!currentUser) return;
+  const files = inputEl && inputEl.files ? Array.from(inputEl.files) : [];
+  if (!files.length) return;
+
+  const phaseSelect = document.getElementById("photoPhaseSelect");
+  const selectedPhase = phaseSelect ? phaseSelect.value : "Turnaround";
+  const captionInput = document.getElementById("photoCaptionInput");
+  const baseCaption = (captionInput ? captionInput.value : "").trim();
+  const rec = state.record;
+  if (!Array.isArray(rec.photos)) rec.photos = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    try {
+      const dataUrl = await compressImageFile(file);
+      const label = baseCaption
+        ? (files.length > 1 ? `${baseCaption} (${i + 1})` : baseCaption)
+        : (file.name || `Proof ${rec.photos.length + 1}`);
+
+      rec.photos.push({
+        id: `ph_${Date.now()}_${i}_${Math.random().toString(36).slice(2, 6)}`,
+        caption: label,
+        dataUrl,
+        by: currentUser.username,
+        phase: selectedPhase,
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+      });
+    } catch (err) {
+      showToast(`Could not attach ${file.name || "photo"}.`);
+    }
+  }
+
+  if (captionInput) captionInput.value = "";
+  inputEl.value = "";
+  saveLocalState();
+  renderPhotoProofs();
+  showToast(`Attached ${files.length} photo proof(s) (${selectedPhase}).`);
+}
+
+function deletePhotoProof(photoId) {
+  const rec = state.record;
+  if (!rec || !Array.isArray(rec.photos)) return;
+  rec.photos = rec.photos.filter(p => p.id !== photoId);
+  saveLocalState();
+  renderPhotoProofs();
+  showToast("Photo proof removed.");
+}
+
+function renderPhotoProofs() {
+  const rec = state.record || { photos: [] };
+  const photos = Array.isArray(rec.photos) ? rec.photos : [];
+
+  const tabCount = document.getElementById("photoProofCount");
+  const galCount = document.getElementById("photoGalleryCount");
+  const grid = document.getElementById("photoGalleryGrid");
+
+  if (tabCount) tabCount.textContent = String(photos.length);
+  if (galCount) galCount.textContent = String(photos.length);
+  if (!grid) return;
+
+  if (!photos.length) {
+    grid.innerHTML = `<div class="meta-line" style="grid-column:1/-1;text-align:center;padding:12px;">No photo proofs attached yet.</div>`;
+    return;
+  }
+
+  grid.innerHTML = photos.map(p => `
+    <div style="border:1px solid var(--border);border-radius:10px;padding:8px;background:#F8FAFC;">
+      <img src="${escapeAttr(p.dataUrl)}" alt="${escapeAttr(p.caption)}" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;border:1px solid #CBD5E1;background:#fff;" />
+      <div style="font-size:12px;font-weight:700;margin-top:6px;">
+        <span class="badge badge-open" style="margin-right:4px;">${escapeHtml(p.phase || p.op || "Flight")}</span>
+        ${escapeHtml(p.caption || "Photo Proof")}
+      </div>
+      <div class="meta-line">By <b>${escapeHtml(p.by)}</b> • ${escapeHtml(p.time)}</div>
+      <div style="margin-top:6px;">
+        <button type="button" class="btn btn-danger btn-sm" onclick="deletePhotoProof('${escapeAttr(p.id)}')">Delete Photo</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function updateFinding(field, value) {
+  if (!currentUser) return;
+  state.record.findings[field] = value;
+  saveLocalState();
+}
+
+function updateAssessment(field, value) {
+  if (!currentUser) return;
+  state.record.assessment[field] = value;
+  saveLocalState();
+}
+
+// Signature pads
+function initSignaturePads() {
+  setupSigCanvas("sigAirline", "sigAirline");
+  setupSigCanvas("sigGha", "sigGha");
+}
+
+function setupSigCanvas(canvasId, keyName) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || canvas.dataset.bound) return;
+  canvas.dataset.bound = "1";
+  const ctx = canvas.getContext("2d");
+  ctx.strokeStyle = "#00205B";
+  ctx.lineWidth = 2.2;
+  ctx.lineCap = "round";
+
+  let drawing = false;
+
+  const getPos = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches ? e.touches[0] : e;
+    return {
+      x: (touch.clientX - rect.left) * (canvas.width / rect.width),
+      y: (touch.clientY - rect.top) * (canvas.height / rect.height)
+    };
+  };
+
+  const start = (e) => {
+    if (!currentUser) return;
+    drawing = true;
+    const p = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+  };
+
+  const move = (e) => {
+    if (!drawing) return;
+    if (e.cancelable) e.preventDefault();
+    const p = getPos(e);
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+  };
+
+  const end = () => {
+    if (!drawing) return;
+    drawing = false;
+    state.record.assessment[keyName] = canvas.toDataURL("image/png");
+    saveLocalState();
+  };
+
+  canvas.addEventListener("mousedown", start);
+  canvas.addEventListener("mousemove", move);
+  window.addEventListener("mouseup", end);
+  canvas.addEventListener("touchstart", start, { passive: true });
+  canvas.addEventListener("touchmove", move, { passive: false });
+  canvas.addEventListener("touchend", end);
+}
+
+function redrawSig(canvasId, dataUrl) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (!dataUrl) return;
+  const img = new Image();
+  img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  img.src = dataUrl;
+}
+
+function clearSig(who) {
+  if (!currentUser) return;
+  const key = who === "airline" ? "sigAirline" : "sigGha";
+  const cid = who === "airline" ? "sigAirline" : "sigGha";
+  state.record.assessment[key] = "";
+  redrawSig(cid, "");
+  saveLocalState();
+}
+
+function resetCurrentFlightLog() {
+  if (!currentUser) return;
+  state.record = emptyUnifiedRecord();
+  saveLocalState();
+  renderAll();
+  showToast("Current flight log cleared.");
+}
+
+// Final Report Snapshot, Archive, and PDF Generation
+function buildFinalReportSnapshot() {
+  const rec = JSON.parse(JSON.stringify(state.record));
+  let cCount = 0;
+  let ncCount = 0;
+  let obsCount = 0;
+  let naCount = 0;
+  const itemsList = [];
+
+  CHECKLIST_SECTIONS.forEach(sec => {
+    sec.items.forEach(it => {
+      const entry = (rec.items && rec.items[it.id]) || { code: "", remark: "", updatedBy: "", updatedAt: "" };
+      if (entry.code === "C") cCount++;
+      else if (entry.code === "NC") ncCount++;
+      else if (entry.code === "OBS") obsCount++;
+      else if (entry.code === "NA") naCount++;
+
+      itemsList.push({
+        section: sec.section,
+        id: it.id,
+        text: it.text,
+        code: entry.code || "-",
+        remark: entry.remark || "",
+        updatedBy: entry.updatedBy || "",
+        updatedAt: entry.updatedAt || ""
+      });
+    });
+  });
+
+  const arrivalTimingsList = (TIMING_FIELDS_BY_OP.Arrival || []).map(df => ({
+    label: df.label,
+    value: (rec.arrivalTimings && rec.arrivalTimings[df.key]) || "-"
+  }));
+
+  const departureTimingsList = (TIMING_FIELDS_BY_OP.Departure || []).map(df => ({
+    label: df.label,
+    value: (rec.departureTimings && rec.departureTimings[df.key]) || "-"
+  }));
+
+  return {
+    id: `rpt_${Date.now()}`,
+    savedAt: new Date().toLocaleString(),
+    savedBy: currentUser ? currentUser.username : "user1",
+    station: "CMB",
+    gha: "SriLankan Airlines",
+    header: rec.header,
+    arrivalTimingsList,
+    departureTimingsList,
+    summary: { cCount, ncCount, obsCount, naCount, total: itemsList.length },
+    itemsList,
+    photos: Array.isArray(rec.photos) ? rec.photos : [],
+    remarks: Array.isArray(rec.remarks) ? rec.remarks : [],
+    findings: rec.findings,
+    assessment: rec.assessment
+  };
+}
+
+function renderReportHtml(rep) {
+  const h = rep.header || {};
+  const f = rep.findings || {};
+  const a = rep.assessment || {};
+  const sum = rep.summary || { cCount: 0, ncCount: 0, obsCount: 0, naCount: 0, total: 31 };
+
+  const arrTimingsRows = (rep.arrivalTimingsList || []).map(t => `
+    <tr>
+      <td style="padding:5px 8px;border:1px solid #CBD5E1;font-weight:700;background:#F8FAFC;">${escapeHtml(t.label)}</td>
+      <td style="padding:5px 8px;border:1px solid #CBD5E1;">${escapeHtml(t.value || "-")}</td>
+    </tr>
+  `).join("");
+
+  const depTimingsRows = (rep.departureTimingsList || []).map(t => `
+    <tr>
+      <td style="padding:5px 8px;border:1px solid #CBD5E1;font-weight:700;background:#F8FAFC;">${escapeHtml(t.label)}</td>
+      <td style="padding:5px 8px;border:1px solid #CBD5E1;">${escapeHtml(t.value || "-")}</td>
+    </tr>
+  `).join("");
+
+  const itemRows = (rep.itemsList || []).map(it => `
+    <tr>
+      <td style="padding:5px 6px;border:1px solid #CBD5E1;text-align:center;font-weight:700;">${it.id}</td>
+      <td style="padding:5px 6px;border:1px solid #CBD5E1;">${escapeHtml(it.text)}</td>
+      <td style="padding:5px 6px;border:1px solid #CBD5E1;text-align:center;font-weight:800;">${escapeHtml(it.code === "NA" ? "N/A" : it.code)}</td>
+      <td style="padding:5px 6px;border:1px solid #CBD5E1;">${escapeHtml(it.remark || "-")}</td>
+    </tr>
+  `).join("");
+
+  const remarksRows = (rep.remarks && rep.remarks.length)
+    ? rep.remarks.map(r => `<li style="margin-bottom:4px;"><b>${escapeHtml(r.by)}</b> (${escapeHtml(r.time)}): ${escapeHtml(r.text)}</li>`).join("")
+    : `<li>No turnaround remarks logged.</li>`;
+
+  const photosHtml = (rep.photos && rep.photos.length)
+    ? `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px;">
+        ${rep.photos.map((p, idx) => `
+          <div style="border:1px solid #CBD5E1;border-radius:8px;padding:7px;background:#F8FAFC;page-break-inside:avoid;">
+            <img src="${escapeAttr(p.dataUrl)}" alt="${escapeAttr(p.caption)}" style="width:100%;max-height:190px;object-fit:contain;border-radius:6px;background:#fff;" />
+            <div style="font-size:11px;font-weight:700;margin-top:5px;">#${idx + 1} [${escapeHtml(p.phase || "Flight")}] ${escapeHtml(p.caption || "Photo Proof")}</div>
+            <div style="font-size:10px;color:#475569;">By ${escapeHtml(p.by)} • ${escapeHtml(p.time)}</div>
+          </div>
+        `).join("")}
+      </div>`
+    : `<div style="font-size:12px;color:#475569;margin-top:6px;">No photo proofs attached.</div>`;
+
+  const sigAirImg = a.sigAirline ? `<img src="${escapeAttr(a.sigAirline)}" style="max-height:58px;border:1px solid #CBD5E1;border-radius:4px;background:#fff;" />` : "<em>Not signed</em>";
+  const sigGhaImg = a.sigGha ? `<img src="${escapeAttr(a.sigGha)}" style="max-height:58px;border:1px solid #CBD5E1;border-radius:4px;background:#fff;" />` : "<em>Not signed</em>";
+
+  return `
+    <div style="font-family:Arial,Helvetica,sans-serif;color:#102038;font-size:12px;line-height:1.45;">
+      <div style="background:#00205B;color:#fff;padding:12px 14px;border-radius:8px;border-bottom:4px solid #C59B27;margin-bottom:12px;">
+        <div style="font-size:15px;font-weight:900;">KUWAIT AIRWAYS — GROUND HANDLING ON-SPOT MONITORING REPORT</div>
+        <div style="font-size:11px;color:#F6E9C3;margin-top:2px;">Station: CMB • GHA: SriLankan Airlines • Turnaround (Arrival &amp; Departure) • Saved: ${escapeHtml(rep.savedAt)}</div>
+      </div>
+
+      <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+        <tr>
+          <td style="padding:5px 8px;border:1px solid #CBD5E1;background:#F8FAFC;"><b>Arrival Flight:</b> ${escapeHtml(h.arrFlightNo || "-")}</td>
+          <td style="padding:5px 8px;border:1px solid #CBD5E1;background:#F8FAFC;"><b>Departure Flight:</b> ${escapeHtml(h.depFlightNo || "-")}</td>
+          <td style="padding:5px 8px;border:1px solid #CBD5E1;background:#F8FAFC;"><b>Date:</b> ${escapeHtml(h.date || "-")}</td>
+        </tr>
+        <tr>
+          <td style="padding:5px 8px;border:1px solid #CBD5E1;"><b>Aircraft Reg:</b> ${escapeHtml(h.aircraftReg || "-")}</td>
+          <td style="padding:5px 8px;border:1px solid #CBD5E1;"><b>Stand / Bay:</b> ${escapeHtml(h.bayNo || "-")}</td>
+          <td style="padding:5px 8px;border:1px solid #CBD5E1;"><b>Inspector:</b> ${escapeHtml(h.inspector || "-")}</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="padding:5px 8px;border:1px solid #CBD5E1;background:#F8FAFC;">
+            <b>Summary:</b> C: ${sum.cCount} &nbsp;|&nbsp; NC: ${sum.ncCount} &nbsp;|&nbsp; OBS: ${sum.obsCount} &nbsp;|&nbsp; N/A: ${sum.naCount} &nbsp;|&nbsp; Photos: ${(rep.photos || []).length}
+          </td>
+        </tr>
+      </table>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+        <div>
+          <div style="font-weight:800;color:#00205B;margin:4px 0;">ARRIVAL OPERATIONAL TIMINGS</div>
+          <table style="width:100%;border-collapse:collapse;">${arrTimingsRows}</table>
+        </div>
+        <div>
+          <div style="font-weight:800;color:#00205B;margin:4px 0;">DEPARTURE OPERATIONAL TIMINGS</div>
+          <table style="width:100%;border-collapse:collapse;">${depTimingsRows}</table>
+        </div>
+      </div>
+
+      <div style="font-weight:800;color:#00205B;margin:8px 0 4px;">CHECKLIST ITEMS (A – F)</div>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+        <thead>
+          <tr style="background:#00205B;color:#fff;">
+            <th style="padding:5px;border:1px solid #CBD5E1;width:36px;">#</th>
+            <th style="padding:5px;border:1px solid #CBD5E1;text-align:left;">Checkpoint</th>
+            <th style="padding:5px;border:1px solid #CBD5E1;width:58px;">Code</th>
+            <th style="padding:5px;border:1px solid #CBD5E1;text-align:left;">Remark</th>
+          </tr>
+        </thead>
+        <tbody>${itemRows}</tbody>
+      </table>
+
+      <div style="font-weight:800;color:#00205B;margin:8px 0 4px;">TURNAROUND REMARKS</div>
+      <ul style="margin:0 0 10px 18px;padding:0;">${remarksRows}</ul>
+
+      <div style="font-weight:800;color:#00205B;margin:8px 0 4px;">FINDINGS &amp; CORRECTIVE ACTIONS</div>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+        <tr><td style="padding:5px 8px;border:1px solid #CBD5E1;"><b>Finding 01 (${escapeHtml(f.f1Risk || "-")}):</b> ${escapeHtml(f.f1Desc || "-")} | <b>Action:</b> ${escapeHtml(f.f1Act || "-")}</td></tr>
+        <tr><td style="padding:5px 8px;border:1px solid #CBD5E1;"><b>Finding 02 (${escapeHtml(f.f2Risk || "-")}):</b> ${escapeHtml(f.f2Desc || "-")} | <b>Action:</b> ${escapeHtml(f.f2Act || "-")}</td></tr>
+        <tr><td style="padding:5px 8px;border:1px solid #CBD5E1;"><b>Finding 03 (${escapeHtml(f.f3Risk || "-")}):</b> ${escapeHtml(f.f3Desc || "-")} | <b>Action:</b> ${escapeHtml(f.f3Act || "-")}</td></tr>
+      </table>
+
+      <div style="font-weight:800;color:#00205B;margin:8px 0 4px;">ASSESSMENT &amp; SIGN-OFF</div>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+        <tr>
+          <td style="padding:6px 8px;border:1px solid #CBD5E1;"><b>Overall Result:</b> ${escapeHtml(a.overallResult || "-")}</td>
+          <td style="padding:6px 8px;border:1px solid #CBD5E1;"><b>Corrective Req:</b> ${escapeHtml(a.correctiveReq || "No")} | <b>Follow-up:</b> ${escapeHtml(a.followupReq || "No")}</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 8px;border:1px solid #CBD5E1;"><b>Airline Rep:</b> ${escapeHtml(a.airlineRepName || "-")}<br/>${sigAirImg}</td>
+          <td style="padding:6px 8px;border:1px solid #CBD5E1;"><b>GHA Rep:</b> ${escapeHtml(a.ghaRepName || "-")}<br/>${sigGhaImg}</td>
+        </tr>
+      </table>
+
+      <div style="font-weight:800;color:#00205B;margin:8px 0 4px;">ATTACHED PHOTO PROOFS (${(rep.photos || []).length})</div>
+      ${photosHtml}
+    </div>
+  `;
+}
+
+function saveFinalReport() {
+  if (!currentUser) return null;
+  const snapshot = buildFinalReportSnapshot();
+  if (!Array.isArray(state.finalReports)) state.finalReports = [];
+  state.finalReports.unshift(snapshot);
+  saveLocalState();
+  renderSavedReports();
+  showToast(`Saved turnaround report (${snapshot.header.arrFlightNo || "KU"} / ${snapshot.header.depFlightNo || "KU"}).`);
+  return snapshot;
+}
+
+function openFinalReportModal(reportObj = null) {
+  const rep = reportObj || buildFinalReportSnapshot();
+  window.__activePreviewReport = rep;
+  const body = document.getElementById("finalReportPreviewBody");
+  const modal = document.getElementById("finalReportModal");
+  if (body) body.innerHTML = renderReportHtml(rep);
+  if (modal) modal.style.display = "flex";
+}
+
+function closeFinalReportModal() {
+  const modal = document.getElementById("finalReportModal");
+  if (modal) modal.style.display = "none";
+}
+
+function saveAndPrintFinalReport() {
+  const saved = saveFinalReport();
+  if (!saved) return;
+  openFinalReportModal(saved);
+  setTimeout(() => {
+    downloadFinalReportPDF();
+  }, 150);
+}
+
+function printFinalReportPDF() {
+  const rep = window.__activePreviewReport || buildFinalReportSnapshot();
+  const reportHtml = renderReportHtml(rep);
+
+  try {
+    const printWin = window.open("", "_blank", "width=860,height=920");
+    if (printWin) {
+      printWin.document.open();
+      printWin.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Kuwait Airways CMB Flight Record</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </head>
+        <body style="margin:14px;">
+          ${reportHtml}
+          <script>
+            window.onload = function() {
+              setTimeout(function() {
+                window.print();
+              }, 300);
+            };
+          <\/script>
+        </body>
+        </html>
+      `);
+      printWin.document.close();
+      return;
+    }
+  } catch (err) {}
+
+  window.print();
+}
+
+function sanitizePdfText(str) {
+  return String(str || "")
+    .replace(/[^\x20-\x7E]/g, "-")
+    .replace(/\\/g, "\\\\")
+    .replace(/\(/g, "\\(")
+    .replace(/\)/g, "\\)");
+}
+
+function wrapPdfLine(text, maxChars = 90) {
+  const words = String(text || "").split(/\s+/);
+  const lines = [];
+  let line = "";
+  for (const w of words) {
+    if (!line) {
+      line = w;
+    } else if (line.length + 1 + w.length <= maxChars) {
+      line += " " + w;
+    } else {
+      lines.push(line);
+      line = w;
+    }
+  }
+  if (line) lines.push(line);
+  return lines.length ? lines : [""];
+}
+
+// Convert any data URL (PNG signature or JPEG photo) into a clean JPEG byte array + dimensions for PDF embedding
+function dataUrlToJpegBytes(dataUrl, maxDim = 900, quality = 0.85) {
+  return new Promise((resolve) => {
+    if (!dataUrl || typeof dataUrl !== "string" || !dataUrl.startsWith("data:image")) {
+      resolve(null);
+      return;
+    }
+    const img = new Image();
+    img.onerror = () => resolve(null);
+    img.onload = () => {
+      try {
+        const scale = Math.max(img.width, img.height) > maxDim
+          ? maxDim / Math.max(img.width, img.height)
+          : 1;
+        const w = Math.max(1, Math.round(img.width * scale));
+        const h = Math.max(1, Math.round(img.height * scale));
+        const canvas = document.createElement("canvas");
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(img, 0, 0, w, h);
+
+        const jpegUrl = canvas.toDataURL("image/jpeg", quality);
+        const base64 = jpegUrl.split(",")[1];
+        const bin = atob(base64);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) {
+          bytes[i] = bin.charCodeAt(i);
+        }
+        resolve({ bytes, width: w, height: h });
+      } catch (e) {
+        resolve(null);
+      }
+    };
+    img.src = dataUrl;
+  });
+}
+
+// High-quality multi-page PDF generator with Kuwait Airways branding, tables, embedded signatures & embedded photos
+async function buildFlightRecordPdfBlob(rep) {
+  const h = rep.header || {};
+  const f = rep.findings || {};
+  const a = rep.assessment || {};
+  const sum = rep.summary || { cCount: 0, ncCount: 0, obsCount: 0, naCount: 0, total: 31 };
+
+  // Decode signatures and photo proofs into JPEG byte payloads in advance
+  const sigAirlineJpeg = await dataUrlToJpegBytes(a.sigAirline, 420, 0.9);
+  const sigGhaJpeg = await dataUrlToJpegBytes(a.sigGha, 420, 0.9);
+
+  const photoAssets = [];
+  const rawPhotos = Array.isArray(rep.photos) ? rep.photos : [];
+  for (let i = 0; i < rawPhotos.length; i++) {
+    const p = rawPhotos[i];
+    const jpg = await dataUrlToJpegBytes(p.dataUrl, 960, 0.85);
+    if (jpg) {
+      photoAssets.push({
+        index: i + 1,
+        phase: p.phase || p.op || "Turnaround",
+        caption: p.caption || `Photo Proof ${i + 1}`,
+        by: p.by || "-",
+        time: p.time || "-",
+        jpg
+      });
+    }
+  }
+
+  const pageWidth = 595.28;  // A4 pt
+  const pageHeight = 841.89; // A4 pt
+  const marginX = 36;
+  const contentW = pageWidth - marginX * 2;
+  const bottomLimit = 46;
+
+  const pages = [];
+  let currentOps = [];
+  let currentImages = []; // { name, jpg }
+  let cursorY = pageHeight - 36;
+  let imgCounter = 0;
+
+  function drawHeaderBanner(isFirstPage) {
+    if (isFirstPage) {
+      currentOps.push("0 0.125 0.357 rg");
+      currentOps.push(`${marginX} ${pageHeight - 86} ${contentW} 54 re f`);
+      currentOps.push("0.773 0.608 0.153 rg");
+      currentOps.push(`${marginX} ${pageHeight - 90} ${contentW} 4 re f`);
+
+      currentOps.push("1 1 1 rg");
+      currentOps.push(`BT /F2 13 Tf ${marginX + 12} ${pageHeight - 56} Td (${sanitizePdfText("KUWAIT AIRWAYS - ON-SPOT GHA MONITORING FLIGHT RECORD")}) Tj ET`);
+      currentOps.push("0.96 0.91 0.76 rg");
+      const sub = `Station: CMB  |  GHA: SriLankan Airlines  |  Date: ${h.date || "-"}  |  Saved: ${rep.savedAt || "-"}`;
+      currentOps.push(`BT /F1 8.5 Tf ${marginX + 12} ${pageHeight - 73} Td (${sanitizePdfText(sub)}) Tj ET`);
+      cursorY = pageHeight - 104;
+    } else {
+      currentOps.push("0 0.125 0.357 rg");
+      currentOps.push(`${marginX} ${pageHeight - 52} ${contentW} 22 re f`);
+      currentOps.push("1 1 1 rg");
+      const hdr = `KUWAIT AIRWAYS (CMB) - FLIGHT RECORD  |  Arr: ${h.arrFlightNo || "-"} / Dep: ${h.depFlightNo || "-"}  |  Date: ${h.date || "-"}`;
+      currentOps.push(`BT /F2 8.5 Tf ${marginX + 8} ${pageHeight - 44} Td (${sanitizePdfText(hdr)}) Tj ET`);
+      cursorY = pageHeight - 66;
+    }
+  }
+
+  function startNewPage(isFirst = false) {
+    if (currentOps.length > 0) {
+      pages.push({ ops: currentOps, images: currentImages });
+    }
+    currentOps = [];
+    currentImages = [];
+    drawHeaderBanner(isFirst);
+  }
+
+  function ensureSpace(neededHeight) {
+    if (cursorY - neededHeight < bottomLimit) {
+      startNewPage(false);
+    }
+  }
+
+  function drawSectionBar(title) {
+    ensureSpace(24);
+    cursorY -= 4;
+    currentOps.push("0 0.125 0.357 rg");
+    currentOps.push(`${marginX} ${cursorY - 16} ${contentW} 16 re f`);
+    currentOps.push("0.773 0.608 0.153 rg");
+    currentOps.push(`${marginX} ${cursorY - 16} 3.5 16 re f`);
+    currentOps.push("1 1 1 rg");
+    currentOps.push(`BT /F2 9 Tf ${marginX + 9} ${cursorY - 11.5} Td (${sanitizePdfText(title)}) Tj ET`);
+    cursorY -= 22;
+  }
+
+  function drawKeyValueRow(pairs) {
+    const colW = contentW / pairs.length;
+    const rowH = 18;
+    ensureSpace(rowH);
+    pairs.forEach((pair, idx) => {
+      const x = marginX + idx * colW;
+      currentOps.push("0.97 0.98 0.99 rg");
+      currentOps.push(`${x.toFixed(2)} ${(cursorY - rowH).toFixed(2)} ${colW.toFixed(2)} ${rowH} re f`);
+      currentOps.push("0.78 0.83 0.90 RG 0.5 w");
+      currentOps.push(`${x.toFixed(2)} ${(cursorY - rowH).toFixed(2)} ${colW.toFixed(2)} ${rowH} re S`);
+      currentOps.push("0.06 0.13 0.22 rg");
+      const labelTxt = `${pair[0]}: `;
+      const valTxt = String(pair[1] || "-");
+      currentOps.push(`BT /F2 8.2 Tf ${(x + 6).toFixed(2)} ${(cursorY - 12).toFixed(2)} Td (${sanitizePdfText(labelTxt)}) Tj /F1 8.2 Tf (${sanitizePdfText(valTxt)}) Tj ET`);
+    });
+    cursorY -= rowH;
+  }
+
+  function drawParagraph(text, bold = false, fontSize = 8.5, indent = 4) {
+    const lines = wrapPdfLine(text, Math.floor((contentW - indent * 2) / (fontSize * 0.52)));
+    const lineH = fontSize + 3.5;
+    ensureSpace(lines.length * lineH + 2);
+    const fontKey = bold ? "/F2" : "/F1";
+    currentOps.push("0.06 0.13 0.22 rg");
+    for (const ln of lines) {
+      currentOps.push(`BT ${fontKey} ${fontSize} Tf ${(marginX + indent).toFixed(2)} ${(cursorY - fontSize).toFixed(2)} Td (${sanitizePdfText(ln)}) Tj ET`);
+      cursorY -= lineH;
+    }
+    cursorY -= 2;
+  }
+
+  // Page 1 start
+  startNewPage(true);
+
+  // 1. Flight & Inspection Details
+  drawSectionBar("1. FLIGHT & INSPECTION DETAILS (ARRIVAL & DEPARTURE TURNAROUND)");
+  drawKeyValueRow([
+    ["Arrival Flight", h.arrFlightNo || "-"],
+    ["Departure Flight", h.depFlightNo || "-"],
+    ["Flight Date", h.date || "-"]
+  ]);
+  drawKeyValueRow([
+    ["Aircraft Reg", h.aircraftReg || "-"],
+    ["Stand / Bay No.", h.bayNo || "-"],
+    ["Inspector", h.inspector || "-"]
+  ]);
+  drawKeyValueRow([
+    ["Compliant (C)", String(sum.cCount)],
+    ["Non-Compliant (NC)", String(sum.ncCount)],
+    ["OBS / N/A / Photos", `${sum.obsCount} / ${sum.naCount} / ${photoAssets.length}`]
+  ]);
+  cursorY -= 4;
+
+  // 2. Major Operational Timings (Side-by-Side Arrival & Departure)
+  drawSectionBar("2. MAJOR OPERATIONAL TIMINGS — ARRIVAL & DEPARTURE");
+  const arrList = rep.arrivalTimingsList || [];
+  const depList = rep.departureTimingsList || [];
+  const maxTimingRows = Math.max(arrList.length, depList.length);
+  const halfW = contentW / 2;
+
+  ensureSpace(18);
+  currentOps.push("0.91 0.94 0.98 rg");
+  currentOps.push(`${marginX} ${cursorY - 16} ${halfW} 16 re f`);
+  currentOps.push(`${marginX + halfW} ${cursorY - 16} ${halfW} 16 re f`);
+  currentOps.push("0.75 0.81 0.89 RG 0.5 w");
+  currentOps.push(`${marginX} ${cursorY - 16} ${halfW} 16 re S`);
+  currentOps.push(`${marginX + halfW} ${cursorY - 16} ${halfW} 16 re S`);
+  currentOps.push("0 0.125 0.357 rg");
+  currentOps.push(`BT /F2 8.2 Tf ${marginX + 6} ${cursorY - 11.5} Td (ARRIVAL TIMINGS) Tj ET`);
+  currentOps.push(`BT /F2 8.2 Tf ${marginX + halfW + 6} ${cursorY - 11.5} Td (DEPARTURE TIMINGS) Tj ET`);
+  cursorY -= 16;
+
+  for (let i = 0; i < maxTimingRows; i++) {
+    const aItem = arrList[i] || { label: "", value: "" };
+    const dItem = depList[i] || { label: "", value: "" };
+    const rowH = 16;
+    ensureSpace(rowH);
+
+    currentOps.push("1 1 1 rg");
+    currentOps.push(`${marginX} ${cursorY - rowH} ${halfW} ${rowH} re f`);
+    currentOps.push(`${marginX + halfW} ${cursorY - rowH} ${halfW} ${rowH} re f`);
+    currentOps.push("0.82 0.86 0.92 RG 0.5 w");
+    currentOps.push(`${marginX} ${cursorY - rowH} ${halfW} ${rowH} re S`);
+    currentOps.push(`${marginX + halfW} ${cursorY - rowH} ${halfW} ${rowH} re S`);
+
+    currentOps.push("0.08 0.14 0.24 rg");
+    if (aItem.label) {
+      currentOps.push(`BT /F2 7.8 Tf ${marginX + 6} ${cursorY - 11} Td (${sanitizePdfText(aItem.label + ": ")}) Tj /F1 7.8 Tf (${sanitizePdfText(aItem.value || "-")}) Tj ET`);
+    }
+    if (dItem.label) {
+      currentOps.push(`BT /F2 7.8 Tf ${marginX + halfW + 6} ${cursorY - 11} Td (${sanitizePdfText(dItem.label + ": ")}) Tj /F1 7.8 Tf (${sanitizePdfText(dItem.value || "-")}) Tj ET`);
+    }
+    cursorY -= rowH;
+  }
+  cursorY -= 6;
+
+  // 3. Checklist Sections A-F
+  drawSectionBar("3. GROUND HANDLING MONITORING CHECKLIST (SECTIONS A – F)");
+  let lastSec = "";
+  for (const it of (rep.itemsList || [])) {
+    if (it.section !== lastSec) {
+      lastSec = it.section;
+      ensureSpace(18);
+      currentOps.push("0.92 0.95 0.99 rg");
+      currentOps.push(`${marginX} ${cursorY - 15} ${contentW} 15 re f`);
+      currentOps.push("0 0.125 0.357 rg");
+      currentOps.push(`BT /F2 8.2 Tf ${marginX + 6} ${cursorY - 11} Td (${sanitizePdfText(lastSec)}) Tj ET`);
+      cursorY -= 17;
+    }
+    const codeDisp = it.code === "NA" ? "N/A" : (it.code || "-");
+    const remDisp = it.remark ? `  [Remark: ${it.remark}]` : "";
+    drawParagraph(`${it.id}. [${codeDisp}] ${it.text}${remDisp}`, false, 8.2, 6);
+  }
+  cursorY -= 4;
+
+  // 4. Turnaround Remarks
+  drawSectionBar("4. TURNAROUND REMARKS");
+  if (rep.remarks && rep.remarks.length) {
+    for (const r of rep.remarks) {
+      drawParagraph(`• ${r.by} (${r.time}): ${r.text}`, false, 8.3, 6);
+    }
+  } else {
+    drawParagraph("No turnaround remarks logged.", false, 8.3, 6);
+  }
+  cursorY -= 4;
+
+  // 5. Findings & Corrective Actions
+  drawSectionBar("5. FINDINGS AND CORRECTIVE ACTIONS");
+  drawParagraph(`Finding 01 (${f.f1Risk || "-"}): ${f.f1Desc || "-"}  |  Action: ${f.f1Act || "-"}`, false, 8.3, 6);
+  drawParagraph(`Finding 02 (${f.f2Risk || "-"}): ${f.f2Desc || "-"}  |  Action: ${f.f2Act || "-"}`, false, 8.3, 6);
+  drawParagraph(`Finding 03 (${f.f3Risk || "-"}): ${f.f3Desc || "-"}  |  Action: ${f.f3Act || "-"}`, false, 8.3, 6);
+  cursorY -= 4;
+
+  // 6. Assessment & Embedded Signatures
+  drawSectionBar("6. OVERALL INSPECTION ASSESSMENT & SIGNATURES");
+  drawKeyValueRow([
+    ["Overall Result", a.overallResult || "-"],
+    ["Corrective Action Req", a.correctiveReq || "No"],
+    ["Follow-up Req", a.followupReq || "No"]
+  ]);
+  drawKeyValueRow([
+    ["Airline Representative", a.airlineRepName || "-"],
+    ["GHA Representative", a.ghaRepName || "-"],
+    ["Ack Date / Time", a.ackDateTime || "-"]
+  ]);
+
+  const sigBoxH = 68;
+  ensureSpace(sigBoxH + 8);
+  const sigBoxW = contentW / 2;
+  currentOps.push("1 1 1 rg");
+  currentOps.push(`${marginX} ${cursorY - sigBoxH} ${sigBoxW} ${sigBoxH} re f`);
+  currentOps.push(`${marginX + sigBoxW} ${cursorY - sigBoxH} ${sigBoxW} ${sigBoxH} re f`);
+  currentOps.push("0.78 0.83 0.90 RG 0.5 w");
+  currentOps.push(`${marginX} ${cursorY - sigBoxH} ${sigBoxW} ${sigBoxH} re S`);
+  currentOps.push(`${marginX + sigBoxW} ${cursorY - sigBoxH} ${sigBoxW} ${sigBoxH} re S`);
+  currentOps.push("0.35 0.42 0.52 rg");
+  currentOps.push(`BT /F2 7.5 Tf ${marginX + 6} ${cursorY - 10} Td (Airline Representative Signature) Tj ET`);
+  currentOps.push(`BT /F2 7.5 Tf ${marginX + sigBoxW + 6} ${cursorY - 10} Td (GHA Representative Signature) Tj ET`);
+
+  if (sigAirlineJpeg) {
+    imgCounter++;
+    const imName = `Im${imgCounter}`;
+    currentImages.push({ name: imName, jpg: sigAirlineJpeg });
+    const drawW = 150;
+    const drawH = Math.min(48, (sigAirlineJpeg.height / sigAirlineJpeg.width) * drawW);
+    currentOps.push(`q ${drawW.toFixed(2)} 0 0 ${drawH.toFixed(2)} ${(marginX + 10).toFixed(2)} ${(cursorY - 14 - drawH).toFixed(2)} cm /${imName} Do Q`);
+  }
+  if (sigGhaJpeg) {
+    imgCounter++;
+    const imName = `Im${imgCounter}`;
+    currentImages.push({ name: imName, jpg: sigGhaJpeg });
+    const drawW = 150;
+    const drawH = Math.min(48, (sigGhaJpeg.height / sigGhaJpeg.width) * drawW);
+    currentOps.push(`q ${drawW.toFixed(2)} 0 0 ${drawH.toFixed(2)} ${(marginX + sigBoxW + 10).toFixed(2)} ${(cursorY - 14 - drawH).toFixed(2)} cm /${imName} Do Q`);
+  }
+  cursorY -= sigBoxH + 8;
+
+  // 7. Embedded High-Quality Photo Proofs (2-column grid with aspect-ratio preservation)
+  drawSectionBar(`7. ATTACHED PHOTO PROOFS (${photoAssets.length})`);
+  if (!photoAssets.length) {
+    drawParagraph("No photo proofs attached to this turnaround record.", false, 8.5, 6);
+  } else {
+    const colGap = 12;
+    const cardW = (contentW - colGap) / 2;
+    const maxImgH = 165;
+    const cardTotalH = maxImgH + 34;
+
+    for (let i = 0; i < photoAssets.length; i += 2) {
+      ensureSpace(cardTotalH + 6);
+      const pair = [photoAssets[i], photoAssets[i + 1]].filter(Boolean);
+
+      pair.forEach((asset, colIdx) => {
+        const cardX = marginX + colIdx * (cardW + colGap);
+        const cardBottomY = cursorY - cardTotalH;
+
+        // Card border & header strip
+        currentOps.push("0.98 0.99 1 rg");
+        currentOps.push(`${cardX.toFixed(2)} ${cardBottomY.toFixed(2)} ${cardW.toFixed(2)} ${cardTotalH.toFixed(2)} re f`);
+        currentOps.push("0.75 0.81 0.89 RG 0.6 w");
+        currentOps.push(`${cardX.toFixed(2)} ${cardBottomY.toFixed(2)} ${cardW.toFixed(2)} ${cardTotalH.toFixed(2)} re S`);
+
+        // Fit image preserving exact aspect ratio inside card
+        const availW = cardW - 12;
+        const availH = maxImgH - 6;
+        const ratio = Math.min(availW / asset.jpg.width, availH / asset.jpg.height);
+        const drawW = asset.jpg.width * ratio;
+        const drawH = asset.jpg.height * ratio;
+        const imgX = cardX + 6 + (availW - drawW) / 2;
+        const imgY = cursorY - 6 - drawH;
+
+        imgCounter++;
+        const imName = `Im${imgCounter}`;
+        currentImages.push({ name: imName, jpg: asset.jpg });
+        currentOps.push(`q ${drawW.toFixed(2)} 0 0 ${drawH.toFixed(2)} ${imgX.toFixed(2)} ${imgY.toFixed(2)} cm /${imName} Do Q`);
+
+        // Caption & metadata footer inside card
+        currentOps.push("0.06 0.13 0.22 rg");
+        const capLine = `#${asset.index} [${asset.phase}] ${asset.caption}`.slice(0, 44);
+        const metaLine = `Captured by ${asset.by} at ${asset.time}`;
+        currentOps.push(`BT /F2 8 Tf ${(cardX + 6).toFixed(2)} ${(cardBottomY + 17).toFixed(2)} Td (${sanitizePdfText(capLine)}) Tj ET`);
+        currentOps.push("0.38 0.45 0.55 rg");
+        currentOps.push(`BT /F1 7.2 Tf ${(cardX + 6).toFixed(2)} ${(cardBottomY + 6).toFixed(2)} Td (${sanitizePdfText(metaLine)}) Tj ET`);
+      });
+
+      cursorY -= cardTotalH + 8;
+    }
+  }
+
+  // Push final page and stamp page numbers on every page
+  pages.push({ ops: currentOps, images: currentImages });
+  const totalPages = pages.length;
+  pages.forEach((pg, idx) => {
+    pg.ops.push("0.42 0.48 0.58 rg");
+    pg.ops.push(`BT /F1 8 Tf ${pageWidth - marginX - 68} 22 Td (Page ${idx + 1} of ${totalPages}) Tj ET`);
+    pg.ops.push(`BT /F1 8 Tf ${marginX} 22 Td (Kuwait Airways - Station CMB Ground Handling Record) Tj ET`);
+  });
+
+  // Assemble valid binary PDF 1.4 with embedded XObject JPEG images
+  const encoder = new TextEncoder();
+  const chunks = [];
+  let byteLen = 0;
+  const offsets = [0]; // object 0
+
+  function pushStr(s) {
+    const b = encoder.encode(s);
+    chunks.push(b);
+    byteLen += b.length;
+  }
+
+  function pushBytes(u8) {
+    chunks.push(u8);
+    byteLen += u8.length;
+  }
+
+  function beginObj(id) {
+    offsets[id] = byteLen;
+    pushStr(`${id} 0 obj\n`);
+  }
+
+  function endObj() {
+    pushStr("\nendobj\n");
+  }
+
+  pushStr("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n");
+
+  // Reserve IDs: 1 = Catalog, 2 = Pages, 3 = F1 Helvetica, 4 = F2 Helvetica-Bold
+  let nextObjId = 5;
+  const pageRecords = pages.map(pg => {
+    const pageObjId = nextObjId++;
+    const contentObjId = nextObjId++;
+    const imgObjs = pg.images.map(im => ({
+      name: im.name,
+      jpg: im.jpg,
+      objId: nextObjId++
+    }));
+    return { pageObjId, contentObjId, ops: pg.ops, imgObjs };
+  });
+
+  beginObj(1);
+  pushStr("<< /Type /Catalog /Pages 2 0 R >>");
+  endObj();
+
+  beginObj(2);
+  pushStr(`<< /Type /Pages /Kids [${pageRecords.map(p => `${p.pageObjId} 0 R`).join(" ")}] /Count ${pageRecords.length} >>`);
+  endObj();
+
+  beginObj(3);
+  pushStr("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>");
+  endObj();
+
+  beginObj(4);
+  pushStr("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>");
+  endObj();
+
+  for (const pRec of pageRecords) {
+    const xobjDict = pRec.imgObjs.length
+      ? `/XObject << ${pRec.imgObjs.map(im => `/${im.name} ${im.objId} 0 R`).join(" ")} >>`
+      : "";
+
+    beginObj(pRec.pageObjId);
+    pushStr(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> ${xobjDict} >> /Contents ${pRec.contentObjId} 0 R >>`);
+    endObj();
+
+    const streamStr = pRec.ops.join("\n");
+    const streamBytes = encoder.encode(streamStr);
+    beginObj(pRec.contentObjId);
+    pushStr(`<< /Length ${streamBytes.length} >>\nstream\n`);
+    pushBytes(streamBytes);
+    pushStr("\nendstream");
+    endObj();
+
+    for (const im of pRec.imgObjs) {
+      beginObj(im.objId);
+      pushStr(`<< /Type /XObject /Subtype /Image /Width ${im.jpg.width} /Height ${im.jpg.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${im.jpg.bytes.length} >>\nstream\n`);
+      pushBytes(im.jpg.bytes);
+      pushStr("\nendstream");
+      endObj();
+    }
+  }
+
+  const xrefOffset = byteLen;
+  const maxObj = nextObjId - 1;
+  pushStr(`xref\n0 ${maxObj + 1}\n`);
+  pushStr("0000000000 65535 f \n");
+  for (let id = 1; id <= maxObj; id++) {
+    const off = String(offsets[id] || 0).padStart(10, "0");
+    pushStr(`${off} 00000 n \n`);
+  }
+  pushStr(`trailer\n<< /Size ${maxObj + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`);
+
+  return new Blob(chunks, { type: "application/pdf" });
+}
+
+async function downloadFinalReportPDF() {
+  const rep = window.__activePreviewReport || buildFinalReportSnapshot();
+  showToast("Building high-quality PDF with embedded photos...");
+
+  try {
+    const pdfBlob = await buildFlightRecordPdfBlob(rep);
+    const flt = [rep.header && rep.header.arrFlightNo, rep.header && rep.header.depFlightNo]
+      .filter(Boolean)
+      .join("_")
+      .replace(/[^a-zA-Z0-9_-]/g, "") || "Turnaround";
+    const dt = (rep.header && rep.header.date) || new Date().toISOString().slice(0, 10);
+    const filename = `KU_CMB_${flt}_${dt}.pdf`;
+
+    const url = URL.createObjectURL(pdfBlob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 15000);
+    showToast(`Downloaded ${filename} with ${(rep.photos || []).length} photo(s).`);
+  } catch (err) {
+    showToast("PDF download blocked — opening Print / Save PDF fallback.");
+    printFinalReportPDF();
+  }
+}
+
+function downloadReportHtmlFile() {
+  const rep = window.__activePreviewReport || buildFinalReportSnapshot();
+  const fullHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kuwait Airways CMB Turnaround Record</title>
+</head>
+<body style="margin:18px;">
+${renderReportHtml(rep)}
+</body>
+</html>`;
+
+  const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  const flt = [rep.header && rep.header.arrFlightNo, rep.header && rep.header.depFlightNo]
+    .filter(Boolean)
+    .join("_")
+    .replace(/[^a-zA-Z0-9_-]/g, "") || "Turnaround";
+  const dt = (rep.header && rep.header.date) || new Date().toISOString().slice(0, 10);
+  a.href = url;
+  a.download = `KU_CMB_${flt}_${dt}.html`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+  showToast("Flight record HTML file downloaded.");
+}
+
+function renderSavedReports() {
+  const listEl = document.getElementById("savedReportsList");
+  const countEl = document.getElementById("savedReportsCount");
+  const reports = Array.isArray(state.finalReports) ? state.finalReports : [];
+
+  if (countEl) countEl.textContent = `${reports.length} Saved`;
+  if (!listEl) return;
+
+  if (!reports.length) {
+    listEl.innerHTML = `<div class="meta-line">No final reports saved yet.</div>`;
+    return;
+  }
+
+  listEl.innerHTML = reports.map((r, idx) => {
+    const fltLabel = `${r.header?.arrFlightNo || "Arr -"} / ${r.header?.depFlightNo || "Dep -"}`;
+    const photoCnt = Array.isArray(r.photos) ? r.photos.length : 0;
+    return `
+      <div class="saved-row">
+        <div>
+          <strong>${escapeHtml(fltLabel)}</strong> • ${escapeHtml(r.header?.date || "")}
+          <div class="meta-line">Saved ${escapeHtml(r.savedAt || "")} by ${escapeHtml(r.savedBy || "")} • Result: ${escapeHtml(r.assessment?.overallResult || "Pending")} • Photos: ${photoCnt}</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="viewSavedReport(${idx})">View / PDF</button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="deleteSavedReport(${idx})">Delete</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function viewSavedReport(index) {
+  const rep = state.finalReports && state.finalReports[index];
+  if (!rep) return;
+  openFinalReportModal(rep);
+}
+
+function deleteSavedReport(index) {
+  if (!Array.isArray(state.finalReports)) return;
+  state.finalReports.splice(index, 1);
+  saveLocalState();
+  renderSavedReports();
+  showToast("Saved report deleted.");
+}
+
+function renderAll() {
+  const rec = state.record;
+  document.getElementById("fArrFlightNo").value = rec.header.arrFlightNo || "";
+  document.getElementById("fDepFlightNo").value = rec.header.depFlightNo || "";
+  document.getElementById("fDate").value = rec.header.date || "";
+  document.getElementById("fAircraftReg").value = rec.header.aircraftReg || "";
+  document.getElementById("fBayNo").value = rec.header.bayNo || "";
+  document.getElementById("fInspector").value = rec.header.inspector || "";
+
+  document.getElementById("find1Desc").value = rec.findings.f1Desc || "";
+  document.getElementById("find1Risk").value = rec.findings.f1Risk || "";
+  document.getElementById("find1Act").value = rec.findings.f1Act || "";
+  document.getElementById("find2Desc").value = rec.findings.f2Desc || "";
+  document.getElementById("find2Risk").value = rec.findings.f2Risk || "";
+  document.getElementById("find2Act").value = rec.findings.f2Act || "";
+  document.getElementById("find3Desc").value = rec.findings.f3Desc || "";
+  document.getElementById("find3Risk").value = rec.findings.f3Risk || "";
+  document.getElementById("find3Act").value = rec.findings.f3Act || "";
+
+  document.getElementById("overallResult").value = rec.assessment.overallResult || "";
+  document.getElementById("correctiveReq").value = rec.assessment.correctiveReq || "No";
+  document.getElementById("followupReq").value = rec.assessment.followupReq || "No";
+  document.getElementById("airlineRepName").value = rec.assessment.airlineRepName || "";
+  document.getElementById("ghaRepName").value = rec.assessment.ghaRepName || "";
+  document.getElementById("ackDateTime").value = rec.assessment.ackDateTime || "";
+
+  redrawSig("sigAirline", rec.assessment.sigAirline);
+  redrawSig("sigGha", rec.assessment.sigGha);
+
+  renderTimings();
+  renderChecklist();
+  renderRemarks();
+  renderPhotoProofs();
+  renderSavedReports();
+}
+
+// Inline Web Manifest & Service Worker registration for offline PWA capability
+function registerInlinePWA() {
+  try {
+    const manifest = {
+      name: "Kuwait Airways CMB Ground Handling Checklist",
+      short_name: "KU CMB Check",
+      start_url: ".",
+      display: "standalone",
+      background_color: "#00205B",
+      theme_color: "#00205B",
+      icons: [
+        {
+          src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='36' fill='%2300205B'/%3E%3Crect x='14' y='14' width='164' height='164' rx='26' fill='none' stroke='%23C59B27' stroke-width='8'/%3E%3Ctext x='96' y='108' font-family='Arial,sans-serif' font-size='64' font-weight='900' fill='%23C59B27' text-anchor='middle'%3EKU%3C/text%3E%3Ctext x='96' y='144' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3ECMB%3C/text%3E%3C/svg%3E",
+          sizes: "192x192",
+          type: "image/svg+xml"
+        }
+      ]
+    };
+    const mBlob = new Blob([JSON.stringify(manifest)], { type: "application/manifest+json" });
+    const link = document.createElement("link");
+    link.rel = "manifest";
+    link.href = URL.createObjectURL(mBlob);
+    document.head.appendChild(link);
+  } catch (e) {}
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  registerInlinePWA();
+
+  try {
+    const savedUser = sessionStorage.getItem("ku_cmb_active_user");
+    if (savedUser) {
+      const matched = ALLOWED_USERS.find(u => u.username === savedUser);
+      if (matched) {
+        currentUser = matched;
+        document.getElementById("loginView").style.display = "none";
+        document.getElementById("appView").style.display = "block";
+        document.getElementById("currentUserBadge").textContent = `${matched.displayName} (${matched.username})`;
+        initSignaturePads();
+        switchWorkspaceTab("checklist");
+        renderAll();
+      }
+    }
+  } catch (e) {}
+});
+</script>
+</body>
+</html>
